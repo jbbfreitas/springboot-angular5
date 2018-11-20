@@ -26,6 +26,14 @@
 	</properties>
 
 	<dependencies>
+
+		<!-- Postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4-1203-jdbc42</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -43,6 +51,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>3.4.2</version>
+				<configuration>
+					<propertyFile>config/liquibase/liquibase.properties</propertyFile>
+					<changeLogFile>config/liquibase/master.xml</changeLogFile>
+				</configuration>
 			</plugin>
 
 		</plugins>
